@@ -1,0 +1,27 @@
+---
+client_id: 988806466318241813
+# Note: this is an example ID for an application I made
+# Feel free to make your own one on the discord developer portal
+images:
+  - red_circle
+  - yellow_circle
+  - blue_circle
+presets:
+  testing:
+    pid: 152
+    state: "some state"
+    details: "some details"
+    start: 1655842215
+    end: 1655928615
+    large_image: red_circle
+    large_text: "large text"
+    small_image: blue_circle
+    small_text: "small text"
+    party_id: deadbeef
+    party_size:
+      - 1
+      - 4
+    join: c0ffee
+    spectate: ba5eba11
+    match: ca55e77e
+    instance: true
