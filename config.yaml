@@ -2,6 +2,8 @@
 client_id: 988806466318241813
 # Note: this is an example ID for an application I made
 # Feel free to make your own one on the discord developer portal
+# This lets you upload custom images that this specific application
+# does not have
 images:
   - red_circle
   - yellow_circle
