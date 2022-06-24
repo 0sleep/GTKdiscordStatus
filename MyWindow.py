@@ -6,9 +6,9 @@ from optionsManager import optionsManager
 class MyWindow(Gtk.Window):
     def __init__(self, config, RPC):
         super().__init__()
-        self.optManager = optionsManager()
         self.config = config
         self.timer_countdown = 0
+        self.optManager = optionsManager(self.config)
         self.rpc = RPC
         self.init_ui()
         self.render_opts()

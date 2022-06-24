@@ -12,8 +12,6 @@ import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GLib
 
-from optionsManager import optionsManager
-from opCon import opCon
 from MyWindow import MyWindow
 
 try:
