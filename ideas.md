@@ -11,7 +11,8 @@
 ## TODO
   - make the buttons options a thing (for "buttons")
   - improve start and end thingy because manual epoch sucks
-
+  - make minimal config yaml not crash (when images not specified for example)
+  - update preset dropdown when saving new preset
 ## TMP
 self.opts = [
         opCon("pid", "i"),

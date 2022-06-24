@@ -14,7 +14,7 @@ class MyWindow(Gtk.Window):
         super().__init__()
         self.config = config
         self.timer_countdown = 0
-        self.optManager = optionsManager(self.config)
+        self.optManager = optionsManager(self.config, self)
         self.rpc = RPC
         self.init_ui()
         self.render_opts()

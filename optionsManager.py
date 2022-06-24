@@ -1,14 +1,15 @@
 from opCon import *
 
 class optionsManager():
-    def __init__(self, config):
+    def __init__(self, config, pwindow):
         self.config = config
+        self.pwindow = pwindow
         self.opts = [
                     opIntIn("pid", "the process id of your game"),
                     opStrIn("state", "the user's current status"),
                     opStrIn("details", "what the player is currently doing"),
-                    opIntIn("start", "epoch for game start"),
-                    opIntIn("end", "epoch for game end"),
+                    opTimeIn("start", "epoch for game start", self.pwindow),
+                    opTimeIn("end", "epoch for game end", self.pwindow),
                     opSelStr("large_image", "name of the uploaded image for the large profile artwork", self.config["images"]),
                     opStrIn("large_text", "tooltip for the large image"),
                     opSelStr("small_image", "name of the uploaded image for the small image", self.config["images"]),
