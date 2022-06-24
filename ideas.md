@@ -12,14 +12,9 @@
   - be able to save presets from current values
     - its possible to have entries in a dropdown, BUT probably better as a completely new line
     - on save update the config dict, then write to file, refresh the dropdown options etc
-  - better data structures for widget stuff ( maybe a widget class or something idk)
-    - kinda done, but it would be better to make it like this:
-      - every input type has it's own class, and is a child of some generic input thingy
-        (yay oop)
-  - make the buttons options a thing
+  - make the buttons options a thing (for "buttons")
   - improve start and end thingy because manual epoch sucks
-  - optCon should have a set function... (and optManager should have a set_from_dict function)
-
+  - clear button to empty all fields
 ## TMP
 self.opts = [
         opCon("pid", "i"),

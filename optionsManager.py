@@ -31,3 +31,12 @@ class optionsManager():
             if option.get() is not None:
                 params[option.name] = option.get()
         return params
+    def set_options(self, selected):
+        selConf = self.config["presets"][selected]
+        setOpts = selConf.keys()
+        for opt in self.opts:
+            if opt.name in setOpts:
+                opt.set(selConf[opt.name])
+    def clear(self):
+        for opt in self.opts:
+            opt.clear()

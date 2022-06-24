@@ -13,6 +13,10 @@ class opStrIn():
         if out == "":
             return None
         return out
+    def set(self, value):
+        self.entry.set_text(value)
+    def clear(self):
+        self.entry.set_text("")
     def attach_self_row(self, grid, row):
         grid.attach(self.label, 0, row, 1, 1)
         grid.attach(self.entry, 1, row, 3, 1)
@@ -33,6 +37,10 @@ class opIntIn():
             print("Cannot convert {} to int ({})".format(out, self.name))
             return None
         return out
+    def set(self, value):
+        self.entry.set_text(str(value))
+    def clear(self):
+        self.entry.set_text("")
     def attach_self_row(self, grid, row):
         grid.attach(self.label, 0, row, 1, 1)
         grid.attach(self.entry, 1, row, 3, 1)
@@ -46,6 +54,10 @@ class opBoolIn():
     def get(self):
         out = self.entry.get_active()
         return out
+    def set(self, value):
+        self.entry.set_active(value)
+    def clear(self):
+        self.entry.set_active(False)
     def attach_self_row(self, grid, row):
         grid.attach(self.label, 0, row, 1, 1)
         grid.attach(self.entry, 1, row, 1, 1)
@@ -66,6 +78,11 @@ class opSelStr():
         if out == "":
             return None
         return out
+    def set(self, value):
+        self.entry.set_text(value)
+    def clear(self):
+        self.entry.set_text("")
+        self.ddown.set_active(-1)
     def attach_self_row(self, grid, row):
         grid.attach(self.label, 0, row, 1, 1)
         grid.attach(self.entry, 1, row, 1, 1)
@@ -91,6 +108,12 @@ class opList():
         except:
             return None
         return out
+    def set(self, value):
+        self.e1.set_text(str(value[0]))
+        self.e2.set_text(str(value[1]))
+    def clear(self):
+        self.e1.set_text("")
+        self.e2.set_text("")
     def attach_self_row(self, grid, row):
         grid.attach(self.label, 0, row, 1, 1)
         grid.attach(self.e1, 1, row, 1, 1)

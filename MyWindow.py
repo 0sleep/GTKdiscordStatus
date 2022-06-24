@@ -26,6 +26,9 @@ class MyWindow(Gtk.Window):
         usePresetBtn = Gtk.Button(label="Use")
         usePresetBtn.connect("clicked", self.use_preset)
         self.pos_grid.attach(usePresetBtn, 2, i, 1, 1)
+        clearBtn = Gtk.Button(label="Clear")
+        clearBtn.connect("clicked", self.clear)
+        self.pos_grid.attach(clearBtn, 3, i, 1, 1)
         i+=1
         aboutBtn = Gtk.Button(label="About")
         #aboutBtn.connect("clicked", self.open_about)
@@ -66,16 +69,9 @@ class MyWindow(Gtk.Window):
         print("Selected preset: {}".format(selected))
         if selected is not None:
             print("Selected preset config: {}".format(self.config["presets"][selected]))
-            current = self.config["presets"][selected]
-            for opt in self.optManager.opts:
-                if opt.name in current.keys():
-                    if opt.type == "s" or opt.type == "i":
-                        opt.entry.set_text(str(current[opt.name]))
-                    elif opt.type == "l":
-                        opt.entry.set_text(str(current[opt.name][0]))
-                        opt.e2.set_text(str(current[opt.name][1]))
-                    elif opt.type == "b":
-                        opt.entry.set_active(current[opt.name])
+            self.optManager.set_options(selected)
+    def clear(self, widget):
+        self.optManager.clear()
     def timer_callback(self):
         if self.timer_countdown > 0:
             self.timer_countdown -= 1
