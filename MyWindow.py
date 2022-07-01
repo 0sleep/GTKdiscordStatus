@@ -1,6 +1,7 @@
 import gi
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk, GLib
+from gi.repository.GdkPixbuf import Pixbuf
 from optionsManager import optionsManager
 from yaml import load, dump
 try:
@@ -12,6 +13,13 @@ except ImportError:
 class MyWindow(Gtk.Window):
     def __init__(self, config, RPC, file):
         super().__init__()
+        # set icon
+        #icontheme = Gtk.IconTheme.get_default()
+        #tm = Gtk.Image()
+        #tm.set_from_pixbuf(self.icon)
+        self.icon = Pixbuf.new_from_file("icon.png")#icontheme.load_icon(Gtk.STOCK_MEDIA_RECORD, 128, 0)
+        self.set_icon(self.icon)
+        
         self.config = config
         self.file=file
         self.timer_countdown = 0
@@ -20,7 +28,6 @@ class MyWindow(Gtk.Window):
         self.rpc = RPC
         self.init_ui()
         self.render_opts()
-
     def render_opts(self):
         i = self.optManager.render_opts(self.pos_grid)
         i+=1
@@ -49,6 +56,7 @@ class MyWindow(Gtk.Window):
         # UPDATE ROW
         i+=1
         aboutBtn = Gtk.Button(label="About")
+        aboutBtn.connect("clicked", self.halp)
         #aboutBtn.connect("clicked", self.open_about)
         self.pos_grid.attach(aboutBtn, 0, i, 1, 1)
 
@@ -62,7 +70,8 @@ class MyWindow(Gtk.Window):
         i+=1
         self.timeout_bar = Gtk.ProgressBar()
         self.pos_grid.attach(self.timeout_bar, 0, i, 4, 1)
-
+    def halp(self, widget):
+        print(self.icon)
     def init_ui(self):
         self.pos_grid = Gtk.Grid(column_spacing=10,row_spacing=10)
         self.add(self.pos_grid)
