@@ -2,7 +2,7 @@
 from pypresence import Presence
 import time, sys
 
-from yaml import load, dump
+from yaml import load, dump, safe_load
 try:
     from yaml import CLoader as Loader, CDumper as Dumper
 except ImportError:
@@ -21,7 +21,7 @@ try:
 except:
     raise FileNotFoundError("Missing config file ({})".format(APPLICATION_DATA))
 
-config = load(f.read())
+config = safe_load(f.read())
 f.close()
 
 print(config)

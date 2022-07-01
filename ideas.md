@@ -11,7 +11,6 @@
 ## TODO
   - make the buttons options a thing (for "buttons")
   - in in vs str in differentiate
-  - make yaml load safely
   - improve main menu layout (make 6 wide!)
   - add about
   - add application logo thing
