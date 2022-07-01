@@ -176,30 +176,37 @@ class timePickerDialog(Gtk.Dialog):
         self.hourBtn.set_value(now.hour)
         self.pos_grid.attach(self.hourBtn, 0, 0, 1, 1)
 
+        self.sep1 = Gtk.Label(" : ")
+        self.pos_grid.attach(self.sep1, 1, 0, 1, 1)
+
         self.minuteBtn = Gtk.SpinButton()
         self.minuteBtn.set_orientation(Gtk.Orientation(1))
         self.minuteBtn.set_numeric(True)
         self.minuteBtn.set_adjustment(Gtk.Adjustment(upper=60, step_increment=1))
         self.minuteBtn.set_value(now.minute)
-        self.pos_grid.attach(self.minuteBtn, 1, 0, 1, 1)
+        self.pos_grid.attach(self.minuteBtn, 2, 0, 1, 1)
+
+        self.sep2 = Gtk.Label(" : ")
+        self.pos_grid.attach(self.sep2, 3, 0, 1, 1)
 
         self.secondBtn = Gtk.SpinButton()
         self.secondBtn.set_orientation(Gtk.Orientation(1))
         self.secondBtn.set_numeric(True)
         self.secondBtn.set_adjustment(Gtk.Adjustment(upper=60, step_increment=1))
         self.secondBtn.set_value(now.minute)
-        self.pos_grid.attach(self.secondBtn, 2, 0, 1, 1)
+        self.pos_grid.attach(self.secondBtn, 4, 0, 1, 1)
 
         self.calendar = Gtk.Calendar()
-        self.pos_grid.attach(self.calendar, 0, 1, 3, 1)
+        self.pos_grid.attach(self.calendar, 5, 0, 3, 1)
 
         self.confirmBtn = Gtk.Button(label="Confirm")
         self.confirmBtn.connect("clicked", self.confirm)
-        self.pos_grid.attach(self.confirmBtn, 1, 2, 1, 1)
+        box.add(self.confirmBtn)
 
         self.exitBtn = Gtk.Button(label="Exit")
         self.exitBtn.connect("clicked", self.exit)
-        self.pos_grid.attach(self.exitBtn, 2, 2, 1, 1)
+        box.add(self.exitBtn)
+
         self.show_all()
     def exit(self, widget):
         self.emit("response", -1)
