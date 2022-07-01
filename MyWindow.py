@@ -10,10 +10,12 @@ except ImportError:
 
 
 class MyWindow(Gtk.Window):
-    def __init__(self, config, RPC):
+    def __init__(self, config, RPC, file):
         super().__init__()
         self.config = config
+        self.file=file
         self.timer_countdown = 0
+        self.check_config()
         self.optManager = optionsManager(self.config, self)
         self.rpc = RPC
         self.init_ui()
@@ -87,7 +89,7 @@ class MyWindow(Gtk.Window):
         self.saveEntry.set_text(self.presetCombo.get_active_text())
     def save_conf(self, widget):
         self.config["presets"][self.saveEntry.get_text()] = self.optManager.get_options()
-        f = open("config.yaml", "w")
+        f = open(self.file, "w")
         f.write(dump(self.config))
         f.close()
 
@@ -102,3 +104,8 @@ class MyWindow(Gtk.Window):
         else:
             self.updateBtn.set_sensitive(True)
             return False
+    def check_config(self): # make sure that all config options accessed exist (in case of minimal config file)
+        if "images" not in self.config.keys():
+            self.config["images"] = []
+        if "presets" not in self.config.keys():
+            self.config["presets"] = {}

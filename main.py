@@ -14,10 +14,12 @@ from gi.repository import Gtk, GLib
 
 from MyWindow import MyWindow
 
+APPLICATION_DATA = "minimal.yaml"
+
 try:
-    f = open("config.yaml")
+    f = open(APPLICATION_DATA)
 except:
-    raise FileNotFoundError("Missing config.yaml file")
+    raise FileNotFoundError("Missing config file ({})".format(APPLICATION_DATA))
 
 config = load(f.read())
 f.close()
@@ -31,6 +33,6 @@ except:
 
 RPC.connect()
 
-win = MyWindow(config, RPC)
+win = MyWindow(config, RPC, APPLICATION_DATA)
 win.show_all()
 Gtk.main()

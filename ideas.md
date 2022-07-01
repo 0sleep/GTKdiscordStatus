@@ -10,9 +10,21 @@
 
 ## TODO
   - make the buttons options a thing (for "buttons")
-  - improve start and end thingy because manual epoch sucks
-  - make minimal config yaml not crash (when images not specified for example)
+  - in in vs str in differentiate
+  - make minimal config yaml not crash (when images not specified for example) + make yaml load safely
   - update preset dropdown when saving new preset
+  - improve main menu layout (make 6 wide!)
+  - add about
+  - fix quit problem
+  Traceback (most recent call last):
+  File "/home/rootuser/Documents/Programming/GTKdiscordStatus/MyWindow.py", line 73, in quit
+    self.rpc.close()
+  File "/usr/local/lib/python3.8/dist-packages/pypresence/presence.py", line 48, in close
+    self.send_data(2, {'v': 1, 'client_id': self.client_id})
+  File "/usr/local/lib/python3.8/dist-packages/pypresence/baseclient.py", line 96, in send_data
+    assert self.sock_writer is not None, "You must connect your client before sending events!"
+AssertionError: You must connect your client before sending events!
+
 ## TMP
 self.opts = [
         opCon("pid", "i"),
