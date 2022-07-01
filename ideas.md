@@ -11,10 +11,10 @@
 ## TODO
   - make the buttons options a thing (for "buttons")
   - in in vs str in differentiate
-  - make minimal config yaml not crash (when images not specified for example) + make yaml load safely
-  - update preset dropdown when saving new preset
+  - make yaml load safely
   - improve main menu layout (make 6 wide!)
   - add about
+  - add application logo thing
   - fix quit problem
   Traceback (most recent call last):
   File "/home/rootuser/Documents/Programming/GTKdiscordStatus/MyWindow.py", line 73, in quit
@@ -24,6 +24,7 @@
   File "/usr/local/lib/python3.8/dist-packages/pypresence/baseclient.py", line 96, in send_data
     assert self.sock_writer is not None, "You must connect your client before sending events!"
 AssertionError: You must connect your client before sending events!
+  - finally: add comments, remove debug print, README etc.
 
 ## TMP
 self.opts = [

@@ -92,6 +92,7 @@ class MyWindow(Gtk.Window):
         f = open(self.file, "w")
         f.write(dump(self.config))
         f.close()
+        self.presetCombo.append_text(self.saveEntry.get_text())
 
     def clear(self, widget):
         self.optManager.clear()
